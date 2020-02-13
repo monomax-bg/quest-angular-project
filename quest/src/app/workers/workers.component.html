@@ -1,0 +1,14 @@
+<div>
+  <div class="title">
+    Workers
+  </div>
+  <div>
+    <ul class="workers">
+      <li *ngFor="let worker of workers"
+          [class.selected]="worker === selectedWorker"
+          (click)="onSelect(worker)">
+        {{worker.name}}
+      </li>
+    </ul>
+  </div>
+</div>

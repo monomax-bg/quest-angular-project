@@ -1,0 +1,17 @@
+<div *ngIf="(flightExtraInfo$ | async)">
+  <div class="external-info-title">
+    Flight Information
+  </div>
+  <div class="external-info-detail">
+    Plane number: {{(flightExtraInfo$ | async).plane}}
+  </div>
+  <div class="external-info-detail">
+    Duration: {{(flightExtraInfo$ | async).duration | hourMinute}}
+  </div>
+  <div class="external-info-detail">
+    Origin gate: {{(flightExtraInfo$ | async).from_gate}}
+  </div>
+  <div class="external-info-detail">
+    Destination gate: {{(flightExtraInfo$ | async).to_gate}}
+  </div>
+</div>

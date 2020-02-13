@@ -1,0 +1,29 @@
+<div *ngIf="error$ | async" class="alert alert-danger">
+  {{error$ | async}}
+</div>
+<div *ngIf="!(error$ | async)">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Flight Number</th>
+      <th scope="col">Origin</th>
+      <th scope="col">Origin Date</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Destination Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let flight of flights$ | async"
+        [class.selected]="flight === selectedFlight"
+        class="flights"
+        (click)="onSelect(flight)">
+      <th scope="row">{{ flight.flightInfo.num}}</th>
+      <td>{{flight.flightInfo.from}}</td>
+      <td>{{flight.flightInfo.from_date}}</td>
+      <td>{{flight.flightInfo.to}}</td>
+      <td>{{flight.flightInfo.to_date}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
